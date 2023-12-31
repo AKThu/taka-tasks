@@ -1,24 +1,8 @@
 import { useState, useEffect } from 'react';
+import useFetch from './useFetch';
 
 const Task = () => {
-    // const [status, setStatus] = useState("not done");
-    const [tasks, setTasks] = useState(null);
-
-    useEffect(() => {
-        fetch("http://localhost:8000/tasks")
-            .then(res => {
-                return res.json();
-            })
-            .then((data) => {
-                // console.log(data, typeof(data))
-                setTasks(data);
-                // tasks.map((task) => console.log(task.id))
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-            
-    }, []);
+    const { data: tasks, error} = useFetch("http://localhost:8000/tasks");
 
     const input = (e) => {
         console.log(e);
