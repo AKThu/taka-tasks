@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 const Test2 = () => {
     const [ check, setCheck ] = useState("")
     const [ text, setText] = useState("")
+    const [ firstRender, setFirstRender] = useState(true);
 
     const doUpdate = (event) => {
         setCheck(event ? "done" : "not done");
@@ -10,18 +11,21 @@ const Test2 = () => {
     }
 
     useEffect(() => {
-        fetch("http://localhost:8001/task", {
-                method: 'PUT',
-                headers: {
-                    "Content-type": "application/json"
-                },
-                body: JSON.stringify({
-                    "status": check,
-                    "name": text,
-                    "id": 1
+        
+        if(!firstRender) {
+            fetch("http://localhost:8001/task", {
+                    method: 'PUT',
+                    headers: {
+                        "Content-type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        "status": check,
+                        "name": text,
+                        "id": 1
+                    })
                 })
-            })
-            console.log(check)
+                console.log(check)
+        }
 
     }, [doUpdate])
     
@@ -33,7 +37,7 @@ const Test2 = () => {
                 setCheck(data.status)
                 setText(data.name)
                 console.log(data)
-
+                setFirstRender(false)
         })
     }, []);
     

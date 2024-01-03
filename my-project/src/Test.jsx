@@ -3,24 +3,33 @@ import useFetch from "./useFetch";
 
 const Test = () => {
     
-    const handleUpdate = (id, name, status) => {
+    const dataToUpdate = null;
 
+    const handleUpdate = (id, name, status) => {
+        dataToUpdate =  {
+                            "status": status,
+                            "name": name,
+                            "id": id
+                        }
+    }
+
+    useEffect(() => {
+        
         fetch("http://localhost:8000/tasks/" + id, {
             method: 'PUT',
             headers: {
                 "Content-type": "application/json"
             },
-            body: JSON.stringify({
-                "status": status,
-                "name": name,
-                "id": id
-            })
+            body: JSON.stringify()
             .then(() => {
-
+    
             })
         })
 
-    }
+    }, [handleUpdate])
+
+
+    
 
     useEffect(() => {
         const { data: tasks , error } = useFetch("http://localhost:8000/tasks");
