@@ -6,12 +6,12 @@
       "id": 1
     },
     {
-      "status": "not done",
-      "name": "Do exercise",
+      "status": "done",
+      "name": "Exercise",
       "id": 2
     },
     {
-      "status": "not done",
+      "status": "done",
       "name": "Play game",
       "id": 3
     }

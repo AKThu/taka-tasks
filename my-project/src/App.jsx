@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import TaskDisplay from "./TaskDisplay";
 import Test from "./Test";
+import Test2 from "./test2";
 
 
 const App = () => {
@@ -8,7 +9,8 @@ const App = () => {
     <>
       <Navbar />
       {/* <TaskDisplay /> */}
-      <Test />
+      {/* <Test /> */}
+      <Test2 />
     </>
    );
 }
