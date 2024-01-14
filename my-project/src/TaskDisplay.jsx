@@ -38,8 +38,8 @@ const TaskDisplay = () => {
     }
     
     function idAndStatusSetter(id, status) {
-        setTaskStatus(status);
         setTaskId(id);
+        setTaskStatus(status);
     }
 
 
@@ -48,7 +48,7 @@ const TaskDisplay = () => {
             <div>
                 <h3 className="text-xl font-bold">Tasks</h3>
                 <Task tasks={tasks} updateData={updateData} taskStatus={taskStatus} taskId={taskId}/>
-                <AddButton />
+                <AddButton tasks={tasks} idAndStatusSetter={idAndStatusSetter}/>
             </div>
             <div>
                 <h3 className="mt-8 text-xl font-bold">Completed Tasks</h3>
