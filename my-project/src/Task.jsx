@@ -25,8 +25,9 @@ const Task = ({tasks, updateData, taskStatus, taskId}) => {
             { tasks && tasks.map((task) => {
                 if(task.status === "not done") {
                     return (
-                        <div className="flex items-center" key={task.id} id={task.id}>
+                        <div className="flex items-center" key={task.id}>
                             <input
+                                id={task.id}
                                 type="checkbox"
                                 checked={statusUpdateHandler(task.id, task.status, taskStatus)}
                                 onChange={(e) => updateData(task.id, statusTypeHandler(e.target.checked, "bool"), task.name)}

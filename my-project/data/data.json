@@ -11,7 +11,7 @@
       "id": 2
     },
     {
-      "status": "done",
+      "status": "not done",
       "name": "Play game",
       "id": 3
     },
@@ -21,7 +21,7 @@
       "id": 4
     },
     {
-      "status": "done",
+      "status": "not done",
       "name": "Design UI",
       "id": 5
     }
