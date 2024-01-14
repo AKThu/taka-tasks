@@ -6,8 +6,8 @@ const Navbar = () => {
                     Taka Tasks
                 </a>
                 <div className="font-medium text-stone-700 flex gap-x-6">
-                    <a href="/">To Do</a>
-                    <a href="/">Completed Tasks</a>
+                    {/* <a href="/">To Do</a>
+                    <a href="/">Completed Tasks</a> */}
                     <button>Mode</button>
                 </div>
             </div>

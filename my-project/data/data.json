@@ -1,7 +1,7 @@
 {
   "tasks": [
     {
-      "status": "done",
+      "status": "not done",
       "name": "Drink water",
       "id": 1
     },
@@ -14,6 +14,16 @@
       "status": "done",
       "name": "Play game",
       "id": 3
+    },
+    {
+      "status": "not done",
+      "name": "Make plan for the project",
+      "id": 4
+    },
+    {
+      "status": "done",
+      "name": "Design UI",
+      "id": 5
     }
   ]
 }

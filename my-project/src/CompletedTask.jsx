@@ -1,4 +1,4 @@
-const Task = ({tasks, updateData, taskStatus, taskId}) => {
+const CompletedTask = ({tasks, updateData, taskStatus, taskId}) => {
 
     // function to swap data type for status
     // bool for input checked
@@ -18,14 +18,14 @@ const Task = ({tasks, updateData, taskStatus, taskId}) => {
     function statusUpdateHandler(id, taskStatus, stateStatus) {
         return statusTypeHandler((id === taskId ? stateStatus : taskStatus), "string");
     }
-   
+    
 
     return (
         <>
             { tasks && tasks.map((task) => {
-                if(task.status === "not done") {
+                if(task.status === "done") {
                     return (
-                        <div className="flex items-center" key={task.id} id={task.id}>
+                        <div className="flex items-center line-through" key={task.id} id={task.id} >
                             <input
                                 type="checkbox"
                                 checked={statusUpdateHandler(task.id, task.status, taskStatus)}
@@ -41,4 +41,4 @@ const Task = ({tasks, updateData, taskStatus, taskId}) => {
     );
 }
  
-export default Task;
+export default CompletedTask;
