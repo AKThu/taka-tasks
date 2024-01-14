@@ -21,24 +21,24 @@ const Task = ({tasks, updateData, taskStatus, taskId}) => {
    
 
     return (
-        <>
+        <ul>
             { tasks && tasks.map((task) => {
                 if(task.status === "not done") {
                     return (
-                        <div className="flex items-center" key={task.id}>
+                        <li key={task.id} id={task.id} className="flex items-center px-4 hover:bg-my-pink hover:shadow-md hover:text-white">
                             <input
                                 id={task.id}
                                 type="checkbox"
                                 checked={statusUpdateHandler(task.id, task.status, taskStatus)}
                                 onChange={(e) => updateData(task.id, statusTypeHandler(e.target.checked, "bool"), task.name)}
                             />
-                            <p className="ml-2 inline-block text-stone-700">{task.name}</p>
-                        </div>
+                            <p className="ml-2 inline-block">{task.name}</p>
+                        </li>
                     )
                 }
             }
             )}
-        </>
+        </ul>
     );
 }
  

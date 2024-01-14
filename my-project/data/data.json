@@ -21,17 +21,17 @@
       "id": 4
     },
     {
-      "status": "not done",
+      "status": "done",
       "name": "Design UI",
       "id": 5
     },
     {
-      "status": "not done",
+      "status": "done",
       "name": "Design input box",
       "id": 6
     },
     {
-      "status": "not done",
+      "status": "done",
       "name": "Watch Anime",
       "id": 7
     }

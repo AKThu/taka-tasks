@@ -49,12 +49,12 @@ const AddButton = ({tasks, idAndStatusSetter}) => {
     return (
         <div className="mt-2">
             <div className={`${inputDisplay ? "flex" : "hidden"} flex-row space-x-3 mb-2`}>
-                <input ref={newTask} type="text" className="border-2 border-slate-400 w-40 h-8 px-2 rounded-lg"></input>
-                <button onClick={confirmButtonHandler} className="bg-green-500 w-8 rounded-full">+</button>
-                <button onClick={cancelButtonHandler} className="bg-red-500 w-8 rounded-full">-</button>
+                <input ref={newTask} type="text" className="border-[0.5px] border-slate-500 w-40 h-8 px-2 rounded-lg"></input>
+                <button onClick={confirmButtonHandler} className="bg-my-pink px-4 py-1 rounded-full text-white text-center border-[0.5px] hover:shadow-md hover:bg-white hover:text-my-pink hover:border-my-pink">add</button>
+                {/* <button onClick={cancelButtonHandler} className="bg-red-500 w-8 rounded-full">-</button> */}
             </div>
             
-            <button onClick={showInputBox} className="bg-my-pink px-4 py-1 rounded-full text-my-light-beige text-center">
+            <button onClick={showInputBox} className="bg-my-pink px-4 py-1 rounded-full text-white text-center border-[0.5px] hover:shadow-md hover:bg-my-pink hover:text-my-pink hover:border-my-pink">
                 {inputDisplay ? "Close" : "Add task"}
             </button>
         </div>

@@ -44,7 +44,7 @@ const TaskDisplay = () => {
 
 
     return ( 
-        <div className="w-[800px] h-[800px] ml-[50%] mt-10 p-6 -translate-x-1/2 rounded-lg drop-shadow-lg bg-white">
+        <div className="w-4/5 h-auto ml-[50%] mt-10 p-6 -translate-x-1/2 rounded-lg drop-shadow-lg bg-white">
             <div>
                 <h3 className="text-xl font-bold">Tasks</h3>
                 <Task tasks={tasks} updateData={updateData} taskStatus={taskStatus} taskId={taskId}/>
