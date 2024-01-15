@@ -15,8 +15,17 @@ export default {
         'my-blue': '#292C6D',
         'my-light-pink': '#FAEDF0',
         'my-pink': '#EC255A',
+        'navy': '#141E46',
+        'white-rose': '#FFF5E0',
+        'light-rose': '#FF6969',
+        'dark-rose': '#C70039',
+        'dark-nav': '#343434',
+        'dark-body': '#121212',
+        'dark-holder': '#232323',
+        'dark-text': '#F4ABC4',
       }
     },
   },
   plugins: [],
+  darkMode: "class"
 }

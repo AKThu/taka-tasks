@@ -41,7 +41,7 @@ const CompletedTask = ({tasks, updateData, deleteData, taskStatus, taskId}) => {
                         <li
                             key={task.id}
                             id={task.id}
-                            className="flex items-center px-4 hover:bg-my-pink hover:shadow-md hover:text-white justify-between"
+                            className="flex items-center px-4 hover:bg-light-rose hover:shadow-md hover:text-white-rose justify-between"
                             onMouseEnter={() => setIsMouseEntered({"mouseEntered": true, "id": task.id})}
                             onMouseLeave={() => setIsMouseEntered({"mouseEntered": false, "id": task.id})}
                         >

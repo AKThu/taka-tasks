@@ -8,13 +8,23 @@ my-blue #292C6D
 my-light-pink #FAEDF0
 my-pink #EC255A
 
+white-rose #FFF5E0
+light-rose #FF6969
+dark-rose #C70039
+navy #141E46
+
+dark-nav #060930
+dark-body #333456
+dark-holder #595B83
+dark-text #F4ABC4
+
 light mode
     primary: my-pink #EC255A
     secondary: my-beige #EAD196
 
 Dark mode
     primary: my-pink #FAEDF0
-    secondary: my-
+    secondary: my-beige #EAD196
 
 
 Task.jsx

@@ -6,7 +6,7 @@
       "id": 5
     },
     {
-      "status": "done",
+      "status": "not done",
       "name": "Design input box",
       "id": 6
     },
@@ -16,12 +16,12 @@
       "id": 7
     },
     {
-      "status": "not done",
+      "status": "done",
       "name": "Drink water",
       "id": 8
     },
     {
-      "status": "not done",
+      "status": "done",
       "name": "Fix Bugs",
       "id": 9
     }

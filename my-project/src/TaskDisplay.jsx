@@ -58,7 +58,7 @@ const TaskDisplay = () => {
 
 
     return ( 
-        <div className="w-4/5 h-auto ml-[50%] mt-10 p-6 -translate-x-1/2 rounded-lg drop-shadow-lg bg-white">
+        <div className="w-4/5 h-auto ml-[50%] mt-10 p-6 -translate-x-1/2 rounded-lg drop-shadow-lg bg-white dark:bg-dark-holder text-neutral-800 dark:text-white transition-colors duration-200">
             <div>
                 <h3 className="text-xl font-bold">Tasks</h3>
                 <Task tasks={tasks} updateData={updateData} deleteData={deleteData} taskStatus={taskStatus} taskId={taskId} setTaskId={setTaskId}/>

@@ -41,7 +41,7 @@ const Task = ({tasks, updateData, deleteData, taskStatus, taskId }) => {
                         <li
                             key={task.id}
                             id={task.id}
-                            className={`flex items-center px-4 py-0 hover:bg-my-pink hover:shadow-md hover:text-white justify-between`}
+                            className={`flex items-center px-4 py-0 hover:bg-light-rose hover:shadow-md hover:text-white justify-between`}
                             onMouseEnter={() => setIsMouseEntered({"mouseEntered": true, "id": task.id})}
                             onMouseLeave={() => setIsMouseEntered({"mouseEntered": false, "id": task.id})}
                         >
@@ -59,7 +59,7 @@ const Task = ({tasks, updateData, deleteData, taskStatus, taskId }) => {
                                     id={task.id}
                                     onClick={() => deleteData(task.id)}
                                 >
-                                    <FontAwesomeIcon icon={faTrash} style={{color: "#FFF"}} />
+                                    <FontAwesomeIcon icon={faTrash} style={{color: "#FFF5E0"}} />
                                 </button>
                             </div>
                         </li>
