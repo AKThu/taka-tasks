@@ -13,7 +13,7 @@ const App = () => {
 
   return ( 
     <div className={`${darkMode && "dark"}`}>
-      <div className="h-screen bg-white-rose dark:bg-dark-body transition-colors duration-200">
+      <div className="h-screen bg-white-rose dark:bg-dark-body transition-colors duration-200 font-Ubuntu">
         <Navbar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
         <TaskDisplay />
       </div>

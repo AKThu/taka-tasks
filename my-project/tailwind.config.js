@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        Roboto: ['Roboto', 'sans-serif'],
+        Ubuntu: ['Ubuntu', 'sans-serif'],
+      },
       colors: {
         'my-red': '#7D0A0A',
         'my-light-red': '#BF3131',
