@@ -36,10 +36,24 @@ const TaskDisplay = () => {
                     idAndStatusSetter(id, status)
                 )
     }
+
+    function deleteData(id) {
+        clearTaskStatus();
+        fetch(`http://localhost:8000/tasks/${id}`, {
+                    method: "DELETE"        
+        }).then(
+            setTaskId(id)
+        )
+    }
     
     function idAndStatusSetter(id, status) {
         setTaskId(id);
         setTaskStatus(status);
+    }
+
+    function clearTaskStatus() {
+        setTaskId(null);
+        setTaskStatus(null);
     }
 
 
@@ -47,12 +61,12 @@ const TaskDisplay = () => {
         <div className="w-4/5 h-auto ml-[50%] mt-10 p-6 -translate-x-1/2 rounded-lg drop-shadow-lg bg-white">
             <div>
                 <h3 className="text-xl font-bold">Tasks</h3>
-                <Task tasks={tasks} updateData={updateData} taskStatus={taskStatus} taskId={taskId}/>
+                <Task tasks={tasks} updateData={updateData} deleteData={deleteData} taskStatus={taskStatus} taskId={taskId} setTaskId={setTaskId}/>
                 <AddButton tasks={tasks} idAndStatusSetter={idAndStatusSetter}/>
             </div>
             <div>
                 <h3 className="mt-8 text-xl font-bold">Completed Tasks</h3>
-                <CompletedTask tasks={tasks} updateData={updateData} taskStatus={taskStatus} taskId={taskId}/>
+                <CompletedTask tasks={tasks} updateData={updateData} deleteData={deleteData} taskStatus={taskStatus} taskId={taskId}/>
             </div>
         </div>
     );

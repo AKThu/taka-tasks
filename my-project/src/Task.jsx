@@ -1,4 +1,6 @@
-const Task = ({tasks, updateData, taskStatus, taskId}) => {
+import DeleteButton from "./DeleteButton";
+
+const Task = ({tasks, updateData, deleteData, taskStatus, taskId }) => {
 
     // function to swap data type for status
     // bool for input checked
@@ -18,21 +20,30 @@ const Task = ({tasks, updateData, taskStatus, taskId}) => {
     function statusUpdateHandler(id, taskStatus, stateStatus) {
         return statusTypeHandler((id === taskId ? stateStatus : taskStatus), "string");
     }
-   
+
 
     return (
         <ul>
             { tasks && tasks.map((task) => {
                 if(task.status === "not done") {
                     return (
-                        <li key={task.id} id={task.id} className="flex items-center px-4 hover:bg-my-pink hover:shadow-md hover:text-white">
-                            <input
-                                id={task.id}
-                                type="checkbox"
-                                checked={statusUpdateHandler(task.id, task.status, taskStatus)}
-                                onChange={(e) => updateData(task.id, statusTypeHandler(e.target.checked, "bool"), task.name)}
-                            />
-                            <p className="ml-2 inline-block">{task.name}</p>
+                        <li
+                            key={task.id}
+                            id={task.id}
+                            className={`flex items-center px-4 hover:bg-my-pink hover:shadow-md hover:text-white justify-between`}
+                        >
+                            <div>
+                                <input
+                                    id={task.id}
+                                    type="checkbox"
+                                    checked={statusUpdateHandler(task.id, task.status, taskStatus)}
+                                    onChange={(e) => updateData(task.id, statusTypeHandler(e.target.checked, "bool"), task.name)}
+                                />
+                                <p className="ml-2 inline-block">{task.name}</p>
+                            </div>
+                            <div>
+                                <button id={task.id} onClick={() => deleteData(task.id)}>Delete</button>
+                            </div>
                         </li>
                     )
                 }

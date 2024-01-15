@@ -10,11 +10,11 @@
     "preview": "vite preview",
     "json-server": "npx json-server --watch data/data.json --port 8000",
     "test-server": "npx json-server --watch data/test.json --port 8001"
-
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
