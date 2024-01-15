@@ -23,7 +23,6 @@ const Task = ({tasks, updateData, deleteData, taskStatus, taskId }) => {
     }
 
     function checkIsMouseEntered(isMouseEntered, taskId) {
-        console.log(isMouseEntered.mouseEntered);
         if(isMouseEntered.mouseEntered && (isMouseEntered.id === taskId)) {
             return "block"
         } else {

@@ -14,3 +14,5 @@ Task.jsx
     can't delete after adding task, and vice visa
     move the deleteData() function outside of Task.jsx and implement in TaskDisplay.jsx
     pass the function as a prop
+
+

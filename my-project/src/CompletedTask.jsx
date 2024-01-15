@@ -1,4 +1,7 @@
-const CompletedTask = ({tasks, updateData, taskStatus, taskId}) => {
+import { useState } from "react";
+
+const CompletedTask = ({tasks, updateData, deleteData, taskStatus, taskId}) => {
+    const [ isMouseEntered, setIsMouseEntered ] = useState({"mouseEntered": false, "id": null});
 
     // function to swap data type for status
     // bool for input checked
@@ -18,6 +21,14 @@ const CompletedTask = ({tasks, updateData, taskStatus, taskId}) => {
     function statusUpdateHandler(id, taskStatus, stateStatus) {
         return statusTypeHandler((id === taskId ? stateStatus : taskStatus), "string");
     }
+
+    function checkIsMouseEntered(isMouseEntered, taskId) {
+        if(isMouseEntered.mouseEntered && (isMouseEntered.id === taskId)) {
+            return "block"
+        } else {
+            return "hidden"
+        }
+    }
     
 
     return (
@@ -25,13 +36,25 @@ const CompletedTask = ({tasks, updateData, taskStatus, taskId}) => {
             { tasks && tasks.map((task) => {
                 if(task.status === "done") {
                     return (
-                        <li className="flex items-center line-through px-4 hover:bg-my-pink hover:shadow-md hover:text-white" key={task.id} id={task.id} >
-                            <input
-                                type="checkbox"
-                                checked={statusUpdateHandler(task.id, task.status, taskStatus)}
-                                onChange={(e) => updateData(task.id, statusTypeHandler(e.target.checked, "bool"), task.name)}
-                            />
-                            <p className="ml-2 inline-block">{task.name}</p>
+                        <li
+                            key={task.id}
+                            id={task.id}
+                            className="flex items-center px-4 hover:bg-my-pink hover:shadow-md hover:text-white justify-between"
+                            onMouseEnter={() => setIsMouseEntered({"mouseEntered": true, "id": task.id})}
+                            onMouseLeave={() => setIsMouseEntered({"mouseEntered": false, "id": task.id})}
+                        >
+                            <div>
+                                <input
+                                    id={task.id}
+                                    type="checkbox"
+                                    checked={statusUpdateHandler(task.id, task.status, taskStatus)}
+                                    onChange={(e) => updateData(task.id, statusTypeHandler(e.target.checked, "bool"), task.name)}
+                                />
+                                <p className="ml-2 inline-block line-through">{task.name}</p>
+                            </div>
+                            <div className={`${checkIsMouseEntered(isMouseEntered, task.id)}`}>
+                                <button id={task.id} onClick={() => deleteData(task.id)}>Delete</button>
+                            </div>
                         </li>
                     )
                 }
