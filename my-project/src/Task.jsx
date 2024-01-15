@@ -1,6 +1,7 @@
-import DeleteButton from "./DeleteButton";
+import { useState } from "react";
 
 const Task = ({tasks, updateData, deleteData, taskStatus, taskId }) => {
+    const [ isMouseEntered, setIsMouseEntered ] = useState({"mouseEntered": false, "id": null});
 
     // function to swap data type for status
     // bool for input checked
@@ -21,6 +22,15 @@ const Task = ({tasks, updateData, deleteData, taskStatus, taskId }) => {
         return statusTypeHandler((id === taskId ? stateStatus : taskStatus), "string");
     }
 
+    function checkIsMouseEntered(isMouseEntered, taskId) {
+        console.log(isMouseEntered.mouseEntered);
+        if(isMouseEntered.mouseEntered && (isMouseEntered.id === taskId)) {
+            return "block"
+        } else {
+            return "hidden"
+        }
+    }
+
 
     return (
         <ul>
@@ -31,6 +41,8 @@ const Task = ({tasks, updateData, deleteData, taskStatus, taskId }) => {
                             key={task.id}
                             id={task.id}
                             className={`flex items-center px-4 hover:bg-my-pink hover:shadow-md hover:text-white justify-between`}
+                            onMouseEnter={() => setIsMouseEntered({"mouseEntered": true, "id": task.id})}
+                            onMouseLeave={() => setIsMouseEntered({"mouseEntered": false, "id": task.id})}
                         >
                             <div>
                                 <input
@@ -41,7 +53,7 @@ const Task = ({tasks, updateData, deleteData, taskStatus, taskId }) => {
                                 />
                                 <p className="ml-2 inline-block">{task.name}</p>
                             </div>
-                            <div>
+                            <div className={`${checkIsMouseEntered(isMouseEntered, task.id)}`}>
                                 <button id={task.id} onClick={() => deleteData(task.id)}>Delete</button>
                             </div>
                         </li>
