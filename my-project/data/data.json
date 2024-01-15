@@ -1,12 +1,12 @@
 {
   "tasks": [
     {
-      "status": "not done",
+      "status": "done",
       "name": "Design UI",
       "id": 5
     },
     {
-      "status": "not done",
+      "status": "done",
       "name": "Design input box",
       "id": 6
     },

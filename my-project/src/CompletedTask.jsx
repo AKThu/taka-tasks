@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 const CompletedTask = ({tasks, updateData, deleteData, taskStatus, taskId}) => {
     const [ isMouseEntered, setIsMouseEntered ] = useState({"mouseEntered": false, "id": null});
@@ -53,7 +55,9 @@ const CompletedTask = ({tasks, updateData, deleteData, taskStatus, taskId}) => {
                                 <p className="ml-2 inline-block line-through">{task.name}</p>
                             </div>
                             <div className={`${checkIsMouseEntered(isMouseEntered, task.id)}`}>
-                                <button id={task.id} onClick={() => deleteData(task.id)}>Delete</button>
+                                <button id={task.id} onClick={() => deleteData(task.id)}>
+                                    <FontAwesomeIcon icon={faTrash} style={{color: "#FFF"}} />
+                                </button>
                             </div>
                         </li>
                     )

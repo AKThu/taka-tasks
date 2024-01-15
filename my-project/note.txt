@@ -8,11 +8,22 @@ my-blue #292C6D
 my-light-pink #FAEDF0
 my-pink #EC255A
 
+light mode
+    primary: my-pink #EC255A
+    secondary: my-beige #EAD196
+
+Dark mode
+    primary: my-pink #FAEDF0
+    secondary: my-
+
+
 Task.jsx
     delete function works but no render after delete
     conflict between add task and delete
     can't delete after adding task, and vice visa
     move the deleteData() function outside of Task.jsx and implement in TaskDisplay.jsx
     pass the function as a prop
+
+
 
 
