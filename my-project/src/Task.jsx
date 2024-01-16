@@ -2,8 +2,9 @@ import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
-const Task = ({tasks}) => {
+const Task = ({tasks, crudHandlers}) => {
     const [ isMouseEntered, setIsMouseEntered ] = useState({"mouseEntered": false, "id": null});
+
 
     function checkIsMouseEntered(isMouseEntered, taskId) {
         if(isMouseEntered.mouseEntered && (isMouseEntered.id === taskId)) {
@@ -12,6 +13,8 @@ const Task = ({tasks}) => {
             return "hidden"
         }
     }
+
+    
 
 
     return (
@@ -30,16 +33,17 @@ const Task = ({tasks}) => {
                                 <input
                                     id={task.id}
                                     type="checkbox"
-                                    checked={false}
-                                    onChange={(e) => {}}
+                                    checked={task.status}
+                                    onChange={() => crudHandlers.updateStatusHandler(task)}
                                 />
                                 <p className="ml-2 inline-block">{task.name}</p>
                             </div>
                             <div className={`${checkIsMouseEntered(isMouseEntered, task.id)}`}>
                                 <button
                                     id={task.id}
-                                    onClick={() => {}}
+                                    onClick={() => crudHandlers.deleteDataHandler(task)}
                                 >
+                                    {/* Delete Button */}
                                     <FontAwesomeIcon icon={faTrash} style={{color: "#FFF5E0"}} />
                                 </button>
                             </div>

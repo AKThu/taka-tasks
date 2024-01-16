@@ -7,7 +7,7 @@ import TaskDisplay from "./TaskDisplay";
   import { initializeApp } from "firebase/app";
   import { 
     addDoc, deleteDoc, updateDoc,
-    collection,
+    collection, doc,
     getFirestore,
     onSnapshot
   } from "firebase/firestore";
@@ -52,7 +52,7 @@ const App = () => {
     function addData(data) {
       addDoc(colRef, data)
         .then(() => {
-
+          
         })
     }
 
@@ -66,26 +66,39 @@ const App = () => {
         })
     }
 
+    // update collection data
     function updateData(data) {
       updateDoc(colRef, data)
         .then(() => {
 
         })
     }
+
+    // update status change
+    function updateStatus(data) {
+      const docRef = doc(db, 'tasks', data.id)
+
+      updateDoc(docRef, {
+        status: data.status
+      })
+        .then(() => {
+
+        })
+    }
   // end of firebase code
 
-
-
+  
   function toggleDarkMode() {
     setDarkMode(!darkMode);
   }
 
+  const crud = { addData, deleteData, updateData, updateStatus };
 
   return ( 
     <div className={`${darkMode && "dark"}`}>
       <div className="h-screen bg-white-rose dark:bg-dark-body transition-colors duration-200 font-Ubuntu">
         <Navbar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
-        <TaskDisplay tasks={tasks}/>
+        <TaskDisplay tasks={tasks} crud={crud}/>
       </div>
     </div>
    );
